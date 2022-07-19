@@ -2,6 +2,8 @@
 
 NestJSで開発したシンプルなAPI(CRUDモデルに従って実装)
 
+こちらは福岡の赤煉瓦会館で実施するハンズオンで使用するプロダクトのソースコード。**とりあえず適当に作っているので、仕様は大幅変更される可能性は高い。**
+
 # 手順
 
 まずは以下のコマンドを実行する
@@ -78,6 +80,10 @@ export class UsersService {
   }
 }
 ```
+
+# 参考サイト
+
+[NestJS Rest API Tutorial | How to create REST API with Nest js](https://blog.devsharma.live/nest-js-rest-api-tutorial)
 
 
 # 開発環境
