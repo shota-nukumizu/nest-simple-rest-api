@@ -8,18 +8,36 @@ export class UsersService {
   private users: User[] = []
   private idSeq = 0
   create(createUserDto: CreateUserDto) {
+    this.users.push({
+      ...createUserDto,
+      id: this.idSeq++
+    })
+    return this.users.at(-1)
   }
 
   findAll(): User[] {
     return this.users
   }
 
-  findOne(id: number) {
+  findOne(id: number): User {
+    return this.users.find((user) => user.id === id)
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
+    const i = this.users.findIndex((user) => user.id == id)
+    if (i === -1) return null
+    this.users[i] = {
+      ...this.users[i],
+      ...UpdateUserDto
+    }
+    return this.users[i]
   }
 
-  remove(id: number) {
+  remove(id: number):User {
+    const i = this.users.findIndex((user) => user.id == id)
+    if (i === -1) return null
+    const user = this.users[i]
+    this.users.splice(i, 1)
+    return user
   }
 }
